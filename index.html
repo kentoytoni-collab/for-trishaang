@@ -1,0 +1,536 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Trish ❤️</title>
+
+<!-- Love Letter Font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Dancing Script', cursive;
+    }
+
+    body {
+        min-height: 100vh;
+
+        background-image:
+            linear-gradient(rgba(255, 255, 255, 0.20), rgba(255, 255, 255, 0.20)),
+            url("https://media.istockphoto.com/id/1638575281/vector/a-heart-abstract-background-pink-gradient-horizontal-banner-valentines-day-and-love-greeting.jpg?s=612x612&w=0&k=20&c=R1oy-F8SdX1GDM-h5N_XkbqFxoGp9qwFHntbKFVpsRo=");
+
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+
+        color: black;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        overflow: hidden;
+    }
+
+    .container {
+        width: 90%;
+        max-width: 600px;
+        text-align: center;
+    }
+
+    .page {
+        display: none;
+        animation: fadeIn 0.7s ease;
+    }
+
+    .page.active {
+        display: block;
+    }
+
+    /* HEADINGS */
+
+    h1 {
+        font-size: 52px;
+        margin-bottom: 20px;
+        color: black;
+        font-weight: 700;
+    }
+
+    h2 {
+        font-size: 36px;
+        margin-bottom: 15px;
+        color: black;
+        font-weight: 700;
+    }
+
+    h3 {
+        color: black;
+        font-weight: 700;
+    }
+
+    /* PARAGRAPHS */
+
+    p {
+        font-size: 21px;
+        line-height: 1.6;
+        color: black;
+        margin-bottom: 30px;
+        font-weight: 500;
+    }
+
+    .small-text {
+        font-size: 18px;
+        color: #222;
+    }
+
+    /* HEART */
+
+    .heart {
+        font-size: 55px;
+        margin-bottom: 20px;
+        animation: heartbeat 1.5s infinite;
+    }
+
+    /* BUTTON AREA */
+
+    .button-area {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        position: relative;
+        min-height: 65px;
+    }
+
+    button {
+        border: none;
+        padding: 15px 30px;
+        border-radius: 30px;
+        font-size: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+        font-family: 'Dancing Script', cursive;
+        font-weight: 700;
+    }
+
+    /* YES BUTTON */
+
+    .yes-btn {
+        background: white;
+        color: black;
+        z-index: 2;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    }
+
+    .yes-btn:hover {
+        transform: scale(1.08);
+        background: #fff;
+    }
+
+    /* NO BUTTON */
+
+    .no-btn {
+        background: #222;
+        color: white;
+        border: 1px solid #111;
+        position: relative;
+        z-index: 3;
+        transition: left 0.25s ease, top 0.25s ease;
+    }
+
+    /* DATE OPTIONS */
+
+    .date-options {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .date-card {
+        width: 220px;
+        min-height: 190px;
+        padding: 25px 20px;
+
+        border-radius: 20px;
+
+        background: rgba(255,255,255,0.65);
+        border: 1px solid rgba(0,0,0,0.15);
+
+        cursor: pointer;
+        transition: 0.3s;
+
+        box-shadow: 0 8px 20px rgba(0,0,0,0.10);
+    }
+
+    .date-card:hover {
+        transform: translateY(-8px) scale(1.02);
+        background: rgba(255,255,255,0.85);
+    }
+
+    .date-icon {
+        font-size: 50px;
+        margin-bottom: 15px;
+    }
+
+    .date-card h3 {
+        font-size: 27px;
+        margin-bottom: 10px;
+    }
+
+    .date-card p {
+        font-size: 17px;
+        margin: 0;
+    }
+
+    /* FINAL CARD */
+
+    .final-card {
+        padding: 35px 25px;
+
+        border-radius: 25px;
+
+        background: rgba(255,255,255,0.68);
+        border: 1px solid rgba(0,0,0,0.15);
+
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+
+    .final-icon {
+        font-size: 65px;
+        margin-bottom: 15px;
+    }
+
+    /* BACK BUTTON */
+
+    .back-btn {
+        background: rgba(255,255,255,0.70);
+        color: black;
+        border: 1px solid rgba(0,0,0,0.3);
+        padding: 10px 20px;
+        font-size: 18px;
+        margin-top: 10px;
+    }
+
+    .back-btn:hover {
+        color: black;
+        background: white;
+        border-color: black;
+    }
+
+    /* ANIMATIONS */
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes heartbeat {
+        0%, 100% {
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(1.15);
+        }
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 500px) {
+
+        h1 {
+            font-size: 42px;
+        }
+
+        h2 {
+            font-size: 29px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        .date-card {
+            width: 100%;
+        }
+
+        .button-area {
+            gap: 10px;
+        }
+
+        button {
+            padding: 13px 23px;
+            font-size: 17px;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- ================= PAGE 1 ================= -->
+
+    <div class="page active" id="page1">
+
+        <div class="heart">❤️</div>
+
+        <h1>Hi Trish.</h1>
+
+        <p>
+            I know this is probably not how you expected to be asked...
+            but I have a question for you.
+        </p>
+
+        <h2>Will you go on a date with me?</h2>
+
+        <div class="button-area">
+
+            <button class="yes-btn" onclick="nextPage(2)">
+                Yes, I will 🤍
+            </button>
+
+            <button class="no-btn" id="noButton">
+                No 😭
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= PAGE 2 ================= -->
+
+    <div class="page" id="page2">
+
+        <h2>So... what kind of date?</h2>
+
+        <p>
+            You get to choose.
+            But choose carefully... 👀
+        </p>
+
+        <div class="date-options">
+
+            <!-- MORNING -->
+
+            <div class="date-card" onclick="chooseDate('morning')">
+
+                <div class="date-icon">☀️</div>
+
+                <h3>Morning Date</h3>
+
+                <p>
+                    Slow morning, good coffee,
+                    good conversation.
+                </p>
+
+            </div>
+
+
+            <!-- NIGHT -->
+
+            <div class="date-card" onclick="chooseDate('night')">
+
+                <div class="date-icon">🌙</div>
+
+                <h3>Night Date</h3>
+
+                <p>
+                    Dinner, chill,
+                    and maybe something unexpected.
+                </p>
+
+            </div>
+
+        </div>
+
+        <br>
+
+        <button class="back-btn" onclick="nextPage(1)">
+            ← Go back
+        </button>
+
+    </div>
+
+
+    <!-- ================= MORNING PAGE ================= -->
+
+    <div class="page" id="morningPage">
+
+        <div class="final-card">
+
+            <div class="final-icon">☕️</div>
+
+            <h2>Morning it is.</h2>
+
+            <p>
+                Coffee first.
+                No rush. No complicated plans.
+                Just you, me, and a morning worth remembering.
+            </p>
+
+            <p>
+                We'll find a good coffee spot,
+                talk about random things,
+                laugh about things that probably aren't even funny...
+            </p>
+
+            <p>
+                And who knows?
+                Maybe the best part of the morning
+                won't be the coffee. 👀
+            </p>
+
+            <p class="small-text">
+                Come curious. I'll handle the rest.
+            </p>
+
+        </div>
+
+        <button class="back-btn" onclick="nextPage(2)">
+            ← Choose again
+        </button>
+
+    </div>
+
+
+    <!-- ================= NIGHT PAGE ================= -->
+
+    <div class="page" id="nightPage">
+
+        <div class="final-card">
+
+            <div class="final-icon">🌙</div>
+
+            <h2>Night it is.</h2>
+
+            <p>
+                Dinner first.
+                Somewhere we can actually enjoy the food
+                and talk without checking the time.
+            </p>
+
+            <p>
+                Then we chill.
+                Maybe a little music,
+                maybe a late-night walk,
+                maybe just seeing where the night takes us.
+            </p>
+
+            <p>
+                I won't tell you everything yet...
+                where's the fun in that? 👀
+            </p>
+
+            <p class="small-text">
+                Just show up. I'll take care of the plan.
+            </p>
+
+        </div>
+
+        <button class="back-btn" onclick="nextPage(2)">
+            ← Choose again
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* ================= PAGE NAVIGATION ================= */
+
+function nextPage(pageNumber) {
+
+    document.querySelectorAll(".page").forEach(page => {
+        page.classList.remove("active");
+    });
+
+    document.getElementById("page" + pageNumber).classList.add("active");
+}
+
+
+/* ================= DATE SELECTION ================= */
+
+function chooseDate(type) {
+
+    document.querySelectorAll(".page").forEach(page => {
+        page.classList.remove("active");
+    });
+
+    if (type === "morning") {
+        document.getElementById("morningPage").classList.add("active");
+    }
+
+    if (type === "night") {
+        document.getElementById("nightPage").classList.add("active");
+    }
+}
+
+
+/* ================= DODGING NO BUTTON ================= */
+
+const noButton = document.getElementById("noButton");
+
+function moveNoButton() {
+
+    const buttonWidth = noButton.offsetWidth;
+    const buttonHeight = noButton.offsetHeight;
+
+    const maxX = window.innerWidth - buttonWidth - 20;
+    const maxY = window.innerHeight - buttonHeight - 20;
+
+    const randomX = Math.max(
+        10,
+        Math.random() * maxX
+    );
+
+    const randomY = Math.max(
+        10,
+        Math.random() * maxY
+    );
+
+    noButton.style.position = "fixed";
+    noButton.style.left = randomX + "px";
+    noButton.style.top = randomY + "px";
+}
+
+
+/* DESKTOP */
+
+noButton.addEventListener("mouseenter", moveNoButton);
+
+
+/* MOBILE */
+
+noButton.addEventListener("touchstart", function(event) {
+
+    event.preventDefault();
+
+    moveNoButton();
+
+});
+
+</script>
+
+</body>
+</html>
